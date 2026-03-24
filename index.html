@@ -1,0 +1,2849 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>НавесПро — Премиум навесы под ключ за 1–3 дня | Гарантия 25 лет</title>
+<meta name="description" content="Строим премиум навесы за 1–3 дня. Фиксированная цена в договоре, гарантия 25 лет. Бесплатный замер в течение 24 часов. 847 реализованных проектов.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --cream:       #F7F1E8;
+  --warm-white:  #FDFAF5;
+  --sand:        #E8DDD0;
+  --sage:        #8FAF7E;
+  --sage-dark:   #6B7C47;
+  --terracotta:  #C17A5A;
+  --walnut:      #4A3728;
+  --charcoal:    #2C2C2C;
+  --matte-black: #1C1C1C;
+  --gold:        #C9A96E;
+  --warm-gray:   #9B9189;
+  --linen:       #DDD5C8;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-xl:   32px;
+
+  --shadow-sm:   0 2px 8px rgba(74,55,40,0.08);
+  --shadow-md:   0 8px 32px rgba(74,55,40,0.12);
+  --shadow-lg:   0 20px 60px rgba(74,55,40,0.18);
+
+  --transition:  0.35s cubic-bezier(0.4,0,0.2,1);
+  --header-h:    72px;
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--cream);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; touch-action: manipulation; }
+button { border: none; cursor: pointer; font-family: inherit; touch-action: manipulation; }
+ul { list-style: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   SCROLL PROGRESS BAR
+═══════════════════════════════════════════ */
+.scroll-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: var(--sage);
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* ═══════════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════════ */
+.display-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.6rem, 7vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.05;
+}
+
+.card-title {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.body-text {
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  line-height: 1.75;
+  color: var(--warm-gray);
+}
+
+.small-text {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--warm-gray);
+}
+
+/* ═══════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.btn-primary:active  { background: var(--charcoal); transform: scale(0.97); }
+.btn-light:active    { background: var(--sage-dark); transform: scale(0.97); }
+.btn-ghost:active    { background: var(--gold); color: var(--matte-black); transform: scale(0.97); }
+
+.btn-primary {
+  background: var(--walnut);
+  color: var(--warm-white);
+}
+.btn-primary:hover {
+  background: var(--charcoal);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(74,55,40,0.3);
+}
+
+.btn-light {
+  background: var(--sage);
+  color: #fff;
+}
+.btn-light:hover {
+  background: var(--sage-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(107,124,71,0.35);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+.btn-ghost:hover {
+  background: var(--gold);
+  color: var(--matte-black);
+  transform: translateY(-2px);
+}
+
+.btn-note {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--warm-gray);
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+}
+
+/* ═══════════════════════════════════════════
+   PLACEHOLDER IMAGES
+═══════════════════════════════════════════ */
+.img-placeholder {
+  background: linear-gradient(135deg, #8FAF7E22 0%, #C17A5A22 50%, #4A372822 100%);
+  position: relative;
+  overflow: hidden;
+}
+.img-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(143,175,126,0.15) 0%,
+    rgba(193,122,90,0.1) 60%,
+    rgba(74,55,40,0.15) 100%
+  );
+}
+
+.ph-hero    { background: linear-gradient(160deg, #2C3E28 0%, #4A5E30 30%, #6B7C47 60%, #3D2E1A 100%); }
+.ph-warm    { background: linear-gradient(135deg, #6B7C47 0%, #8FAF7E 40%, #C9A96E 80%, #4A3728 100%); }
+.ph-cool    { background: linear-gradient(135deg, #3D5E38 0%, #6B7C47 50%, #2C3E28 100%); }
+.ph-sunset  { background: linear-gradient(135deg, #C17A5A 0%, #C9A96E 40%, #4A3728 80%, #2C2C2C 100%); }
+.ph-morning { background: linear-gradient(135deg, #8FAF7E 0%, #F7F1E8 40%, #C9A96E 80%, #4A3728 100%); }
+.ph-evening { background: linear-gradient(135deg, #1C1C1C 0%, #4A3728 40%, #C9A96E 80%, #8FAF7E 100%); }
+
+/* ═══════════════════════════════════════════
+   SECTION BASE
+═══════════════════════════════════════════ */
+.section { position: relative; overflow: hidden; }
+.section-light { background: var(--cream); }
+.section-lighter { background: var(--warm-white); }
+.section-dark { background: var(--matte-black); color: var(--warm-white); }
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-pad { padding: 100px 0; }
+
+/* Декоративная подложка */
+.section-label {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 16vw, 18rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  opacity: 0.035;
+  white-space: nowrap;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--charcoal);
+}
+.section-dark .section-label { color: #fff; opacity: 0.04; }
+
+/* Animate on scroll — только на десктопе */
+@media (min-width: 769px) {
+  .anim {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .anim.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .anim-delay-1 { transition-delay: 0.1s; }
+  .anim-delay-2 { transition-delay: 0.2s; }
+  .anim-delay-3 { transition-delay: 0.3s; }
+  .anim-delay-4 { transition-delay: 0.4s; }
+  .anim-delay-5 { transition-delay: 0.5s; }
+}
+
+/* ═══════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════ */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  z-index: 1000;
+  transition: background var(--transition), box-shadow var(--transition);
+}
+.header.scrolled {
+  background: rgba(28,28,28,0.96);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--warm-white);
+}
+.logo-mark {
+  width: 36px; height: 36px;
+  background: var(--sage);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
+}
+.logo-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--warm-white);
+}
+
+.nav { display: flex; gap: 0; }
+.nav a {
+  display: block;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(253,250,245,0.75);
+  transition: color var(--transition);
+  position: relative;
+}
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; left: 16px; right: 16px;
+  height: 1px;
+  background: var(--sage);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+.nav a:hover { color: var(--warm-white); }
+.nav a:hover::after { transform: scaleX(1); }
+
+.header-contacts {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.header-phone {
+  text-align: right;
+  color: var(--warm-white);
+}
+.header-phone a {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--warm-white);
+  transition: color var(--transition);
+}
+.header-phone a:hover { color: var(--sage); }
+.header-phone small {
+  font-size: 0.75rem;
+  color: var(--warm-gray);
+}
+.header-cta {
+  padding: 10px 20px;
+  font-size: 0.8rem;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+  background: none;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--warm-white);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: translateX(-8px); }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile nav overlay */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(28,28,28,0.98);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--warm-white);
+  padding: 12px 32px;
+  text-align: center;
+  transition: color var(--transition);
+}
+.mobile-nav a:hover { color: var(--sage); }
+.mobile-nav-phone {
+  margin-top: 32px;
+  font-size: 1.5rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION 1: HERO
+═══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--warm-white);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.hero-bg-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    160deg,
+    rgba(28,28,28,0.55) 0%,
+    rgba(74,55,40,0.4) 50%,
+    rgba(28,28,28,0.65) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 24px;
+  padding-top: var(--header-h);
+  margin-bottom: 120px; /* отступ снизу, чтобы hero-stats не перекрывал контент */
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: '';
+  display: block;
+  width: 32px; height: 1px;
+  background: var(--sage);
+}
+
+.hero-title {
+  color: var(--warm-white);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.4s forwards;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  color: rgba(253,250,245,0.8);
+  line-height: 1.6;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.6s forwards;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.8s forwards;
+}
+
+.hero-note {
+  font-size: 0.82rem;
+  color: rgba(253,250,245,0.55);
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hero-note span::before { content: '· '; }
+.hero-note span:first-child::before { content: ''; }
+
+.hero-stats {
+  position: absolute;
+  bottom: 40px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 48px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 1s forwards;
+}
+.hero-stat { text-align: center; }
+.hero-stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--warm-white);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 0.78rem;
+  color: rgba(253,250,245,0.55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px; right: 40px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(253,250,245,0.4);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: bounce 2s ease infinite 1.5s;
+}
+.hero-scroll-line {
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, rgba(253,250,245,0.4), transparent);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(8px); }
+}
+
+/* ═══════════════════════════════════════════
+   SECTION 2: PAIN
+═══════════════════════════════════════════ */
+.pain { background: var(--cream); }
+
+.pain-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.pain-heading { margin-bottom: 16px; }
+.pain-intro { max-width: 380px; }
+
+.pain-list { display: flex; flex-direction: column; gap: 20px; }
+
+.pain-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 20px 24px;
+  background: var(--warm-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--linen);
+  transition: var(--transition);
+}
+.pain-item:hover {
+  border-color: var(--sage);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(4px);
+}
+.pain-icon {
+  width: 40px; height: 40px;
+  background: var(--sage);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+.pain-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--charcoal);
+}
+
+.pain-transition {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--linen);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.pain-transition-line {
+  flex: 1;
+  height: 1px;
+  background: var(--sage);
+}
+.pain-transition-text {
+  font-size: 0.9rem;
+  color: var(--warm-gray);
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION 3: UTP / BENEFITS
+═══════════════════════════════════════════ */
+.utp { background: var(--matte-black); }
+
+.utp-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 60px;
+}
+.utp-header .section-title { color: var(--warm-white); margin-bottom: 12px; }
+.utp-header p { color: var(--warm-gray); font-size: 1rem; }
+
+/* Bento grid */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  gap: 16px;
+}
+
+.bento-card {
+  background: rgba(255,250,245,0.05);
+  border: 1px solid rgba(255,250,245,0.08);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.bento-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(143,175,126,0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.bento-card:hover { border-color: rgba(143,175,126,0.3); }
+.bento-card:hover::before { opacity: 1; }
+
+.bento-card:nth-child(1) { grid-column: 1 / 7; }
+.bento-card:nth-child(2) { grid-column: 7 / 10; }
+.bento-card:nth-child(3) { grid-column: 10 / 13; }
+.bento-card:nth-child(4) { grid-column: 1 / 5; }
+.bento-card:nth-child(5) { grid-column: 5 / 9; }
+.bento-card:nth-child(6) { grid-column: 9 / 13; }
+
+.bento-card:nth-child(1) { padding: 48px; }
+
+.bento-num {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.bento-num-unit { font-size: 1.5rem; }
+
+.bento-icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  display: block;
+}
+.bento-card-title {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--warm-white);
+  margin-bottom: 8px;
+}
+.bento-card-text {
+  font-size: 0.88rem;
+  color: var(--warm-gray);
+  line-height: 1.6;
+}
+
+.bento-card:nth-child(1) .bento-card-title {
+  font-size: 1.5rem;
+}
+.bento-card:nth-child(1) .bento-card-text {
+  font-size: 1rem;
+  color: rgba(155,145,137,0.9);
+}
+
+.utp-cta {
+  text-align: center;
+  margin-top: 56px;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION 4: PORTFOLIO
+═══════════════════════════════════════════ */
+.portfolio { background: var(--warm-white); }
+
+.portfolio-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.portfolio-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  padding: 8px 20px;
+  border-radius: 99px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background: var(--cream);
+  color: var(--warm-gray);
+  border: 1px solid var(--linen);
+  transition: var(--transition);
+}
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--walnut);
+  color: var(--warm-white);
+  border-color: var(--walnut);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.portfolio-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+}
+.portfolio-card:nth-child(1) {
+  grid-column: 1 / 3;
+  aspect-ratio: 16/9;
+}
+.portfolio-card:nth-child(4) {
+  grid-column: 2 / 4;
+  aspect-ratio: 16/9;
+}
+
+.portfolio-img {
+  width: 100%; height: 100%;
+  transition: transform 0.6s ease;
+}
+.portfolio-card:hover .portfolio-img {
+  transform: scale(1.05);
+}
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(28,28,28,0.85) 0%, transparent 50%);
+  opacity: 0;
+  transition: var(--transition);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+.portfolio-card:hover .portfolio-overlay { opacity: 1; }
+.portfolio-info { color: var(--warm-white); }
+.portfolio-info h4 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+.portfolio-info p { font-size: 0.82rem; color: rgba(253,250,245,0.7); line-height: 1.4; }
+.portfolio-budget {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 12px;
+  background: var(--sage);
+  border-radius: 99px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.portfolio-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION 5: PROCESS
+═══════════════════════════════════════════ */
+.process { background: var(--cream); }
+
+.process-header {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 60px;
+}
+.process-header .section-title { margin-bottom: 12px; }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  position: relative;
+}
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: calc(100% / 12);
+  right: calc(100% / 12);
+  height: 1px;
+  background: linear-gradient(to right, var(--sage), var(--linen) 80%);
+  z-index: 0;
+}
+
+.process-step {
+  text-align: center;
+  position: relative;
+  padding: 0 8px;
+  z-index: 1;
+}
+.process-num {
+  width: 72px; height: 72px;
+  background: var(--warm-white);
+  border: 2px solid var(--linen);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--sage-dark);
+  transition: var(--transition);
+  position: relative;
+  z-index: 1;
+}
+.process-step:hover .process-num {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.process-step-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: var(--charcoal);
+}
+.process-step-time {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--sand);
+  border-radius: 99px;
+  font-size: 0.75rem;
+  color: var(--warm-gray);
+  margin-bottom: 10px;
+}
+.process-step-text {
+  font-size: 0.83rem;
+  color: var(--warm-gray);
+  line-height: 1.55;
+}
+
+.process-note {
+  text-align: center;
+  margin-top: 56px;
+  padding: 28px 40px;
+  background: var(--matte-black);
+  border-radius: var(--radius-lg);
+  color: var(--warm-white);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 300;
+  font-style: italic;
+}
+.process-note span { color: var(--sage); }
+
+/* ═══════════════════════════════════════════
+   SECTION 6: REVIEWS
+═══════════════════════════════════════════ */
+.reviews { background: var(--matte-black); }
+
+.reviews-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.reviews-header .section-title { color: var(--warm-white); }
+
+.rating-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  padding: 14px 24px;
+}
+.rating-stars { font-size: 1.2rem; letter-spacing: 2px; color: var(--gold); }
+.rating-info h4 { font-size: 1.1rem; font-weight: 600; color: var(--warm-white); }
+.rating-info p { font-size: 0.8rem; color: var(--warm-gray); }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.review-card {
+  background: rgba(255,250,245,0.05);
+  border: 1px solid rgba(255,250,245,0.08);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: var(--transition);
+}
+.review-card:hover {
+  border-color: rgba(201,169,110,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+.review-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.review-avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid rgba(201,169,110,0.3);
+}
+.review-meta h4 { font-size: 0.95rem; font-weight: 600; color: var(--warm-white); }
+.review-meta p { font-size: 0.78rem; color: var(--warm-gray); margin-top: 2px; }
+
+.review-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 14px; }
+
+.review-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(253,250,245,0.75);
+  font-style: italic;
+}
+.review-text::before { content: '«'; }
+.review-text::after { content: '»'; }
+
+.review-project {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.78rem;
+  color: var(--warm-gray);
+}
+.review-project span { color: var(--sage); font-weight: 500; }
+
+/* ═══════════════════════════════════════════
+   SECTION 7: CALCULATOR
+═══════════════════════════════════════════ */
+.calculator { background: var(--cream); }
+
+.calculator-inner {
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  gap: 80px;
+  align-items: start;
+}
+
+.calc-info-header .section-title { margin-bottom: 16px; }
+.calc-info-header p { color: var(--warm-gray); margin-bottom: 32px; }
+
+.calc-benefits { display: flex; flex-direction: column; gap: 16px; }
+.calc-benefit {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--charcoal);
+}
+.calc-benefit-icon {
+  width: 36px; height: 36px;
+  background: var(--sage);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.calc-box {
+  background: var(--matte-black);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+}
+
+.calc-progress {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 28px;
+}
+.calc-dot {
+  flex: 1;
+  height: 3px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 99px;
+  transition: background var(--transition);
+}
+.calc-dot.active { background: var(--sage); }
+.calc-dot.done { background: rgba(143,175,126,0.4); }
+
+.calc-step-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.calc-step-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--warm-white);
+  margin-bottom: 28px;
+}
+
+.calc-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.calc-option {
+  padding: 16px 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--warm-white);
+}
+.calc-option-icon { font-size: 1.6rem; display: block; margin-bottom: 8px; }
+.calc-option-label { font-size: 0.82rem; font-weight: 500; line-height: 1.3; }
+.calc-option:hover,
+.calc-option.selected {
+  background: rgba(143,175,126,0.2);
+  border-color: var(--sage);
+}
+.calc-option.selected { box-shadow: 0 0 0 2px var(--sage); }
+
+.calc-options-4 { grid-template-columns: repeat(2, 1fr); }
+
+/* Sizes step */
+.calc-sizes { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+.calc-size-opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--warm-white);
+  font-size: 0.9rem;
+}
+.calc-size-opt:hover, .calc-size-opt.selected {
+  background: rgba(143,175,126,0.2);
+  border-color: var(--sage);
+}
+.calc-size-radio {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.3);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+}
+.calc-size-opt.selected .calc-size-radio {
+  border-color: var(--sage);
+  background: var(--sage);
+}
+.calc-size-opt.selected .calc-size-radio::after {
+  content: '✓';
+  font-size: 0.65rem;
+  color: #fff;
+}
+.calc-size-price {
+  margin-left: auto;
+  font-size: 0.82rem;
+  color: var(--warm-gray);
+}
+
+/* Contact step */
+.calc-form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.calc-input {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--warm-white);
+  transition: var(--transition);
+  outline: none;
+}
+.calc-input::placeholder { color: rgba(155,145,137,0.7); }
+.calc-input:focus { border-color: var(--sage); background: rgba(143,175,126,0.08); }
+
+.calc-nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.calc-back {
+  width: 46px; height: 46px;
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--warm-gray);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.calc-back:hover { background: rgba(255,255,255,0.12); color: var(--warm-white); }
+.calc-next { flex: 1; }
+
+.calc-disclaimer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(155,145,137,0.6);
+  margin-top: 12px;
+}
+
+/* Success screen */
+.calc-success {
+  display: none;
+  text-align: center;
+  padding: 20px 0;
+}
+.calc-success-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+.calc-success h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--warm-white);
+  margin-bottom: 12px;
+}
+.calc-success p {
+  color: var(--warm-gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION 8: GUARANTEES
+═══════════════════════════════════════════ */
+.guarantees { background: var(--matte-black); }
+
+.guarantees-header {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 56px;
+}
+.guarantees-header .section-title { color: var(--warm-white); margin-bottom: 12px; }
+.guarantees-header p { color: var(--warm-gray); }
+
+.guarantees-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 64px;
+}
+.guarantee-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  padding: 28px 20px;
+  text-align: center;
+  transition: var(--transition);
+}
+.guarantee-card:hover {
+  border-color: rgba(201,169,110,0.35);
+  background: rgba(201,169,110,0.05);
+  transform: translateY(-4px);
+}
+.guarantee-icon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+  display: block;
+}
+.guarantee-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.guarantee-text {
+  font-size: 0.82rem;
+  color: var(--warm-gray);
+  line-height: 1.55;
+}
+
+.team-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.team-card {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+.team-photo {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid rgba(201,169,110,0.3);
+}
+.team-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--warm-white);
+  margin-bottom: 2px;
+}
+.team-role {
+  font-size: 0.8rem;
+  color: var(--sage);
+  margin-bottom: 10px;
+}
+.team-quote {
+  font-size: 0.85rem;
+  color: var(--warm-gray);
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION 9: FINAL CTA
+═══════════════════════════════════════════ */
+.final-cta {
+  position: relative;
+  background: var(--matte-black);
+  overflow: hidden;
+}
+
+.final-cta-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.25;
+}
+.final-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(28,28,28,0.5) 0%, rgba(28,28,28,0.85) 100%);
+}
+
+.final-cta-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.final-cta-left { color: var(--warm-white); }
+.final-cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.final-cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.final-cta-urgency {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(201,169,110,0.15);
+  border: 1px solid rgba(201,169,110,0.3);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  color: var(--gold);
+}
+.urgency-dot {
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* Glass form card */
+.cta-form-card {
+  background: rgba(253,250,245,0.07);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(253,250,245,0.12);
+  border-radius: var(--radius-xl);
+  padding: 44px 40px;
+  box-shadow: var(--shadow-lg);
+}
+.cta-form-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--warm-white);
+  margin-bottom: 6px;
+}
+.cta-form-sub {
+  font-size: 0.85rem;
+  color: var(--warm-gray);
+  margin-bottom: 28px;
+}
+
+.cta-form { display: flex; flex-direction: column; gap: 12px; }
+.cta-input {
+  width: 100%;
+  padding: 15px 20px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--warm-white);
+  outline: none;
+  transition: var(--transition);
+}
+.cta-input::placeholder { color: rgba(155,145,137,0.65); }
+.cta-input:focus { border-color: var(--sage); background: rgba(143,175,126,0.08); }
+
+.cta-channels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+.cta-channel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+}
+.cta-channel-wa { background: #25D36620; color: #25D366; border: 1px solid #25D36640; }
+.cta-channel-tg { background: #229ED920; color: #229ED9; border: 1px solid #229ED940; }
+.cta-channel-phone { background: rgba(255,255,255,0.06); color: var(--warm-white); border: 1px solid rgba(255,255,255,0.12); }
+.cta-channel:hover { transform: translateY(-2px); filter: brightness(1.2); }
+
+.cta-form-note {
+  text-align: center;
+  font-size: 0.76rem;
+  color: rgba(155,145,137,0.6);
+  margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+.footer {
+  background: #141414;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 48px 0 32px;
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 40px;
+}
+.footer-brand .logo-name { color: var(--warm-white); font-size: 1.2rem; margin-bottom: 12px; display: block; }
+.footer-desc {
+  font-size: 0.85rem;
+  color: var(--warm-gray);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+.footer-reqs {
+  font-size: 0.75rem;
+  color: rgba(155,145,137,0.5);
+  line-height: 1.6;
+}
+.footer-col h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-bottom: 16px;
+}
+.footer-links { display: flex; flex-direction: column; gap: 8px; }
+.footer-links a {
+  font-size: 0.88rem;
+  color: rgba(253,250,245,0.5);
+  transition: color var(--transition);
+}
+.footer-links a:hover { color: var(--warm-white); }
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: rgba(253,250,245,0.6);
+  margin-bottom: 10px;
+}
+.footer-contact a { color: var(--warm-white); font-weight: 500; }
+.footer-contact a:hover { color: var(--sage); }
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.78rem;
+  color: rgba(155,145,137,0.5);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { color: rgba(155,145,137,0.5); transition: color var(--transition); }
+.footer-legal a:hover { color: var(--warm-gray); }
+
+/* ── Мобильная нижняя панель — скрыта на desktop ── */
+.mobile-bottom-bar { display: none; }
+
+/* ═══════════════════════════════════════════
+   WHATSAPP FLOAT
+═══════════════════════════════════════════ */
+.wa-float {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 99px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+  text-decoration: none;
+  transition: var(--transition);
+  animation: fadeUp 0.6s ease 1.5s both;
+}
+.wa-float:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 32px rgba(37,211,102,0.55);
+}
+.wa-float-icon { font-size: 1.2rem; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════
+   TABLET  ≤ 1024px
+═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .bento { grid-template-columns: repeat(6, 1fr); }
+  .bento-card:nth-child(1) { grid-column: 1 / 7; }
+  .bento-card:nth-child(2) { grid-column: 1 / 4; }
+  .bento-card:nth-child(3) { grid-column: 4 / 7; }
+  .bento-card:nth-child(4) { grid-column: 1 / 3; }
+  .bento-card:nth-child(5) { grid-column: 3 / 5; }
+  .bento-card:nth-child(6) { grid-column: 5 / 7; }
+
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .portfolio-card:nth-child(1),
+  .portfolio-card:nth-child(4) { grid-column: 1 / 3; }
+
+  .process-steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .process-steps::before { display: none; }
+
+  .calculator-inner { grid-template-columns: 1fr; }
+  .calc-box { position: static; max-width: 560px; margin: 40px auto 0; }
+
+  .guarantees-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .final-cta-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .final-cta-urgency { justify-content: center; }
+  .cta-form-card { max-width: 520px; margin: 0 auto; }
+
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE  ≤ 768px
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  :root { --header-h: 60px; }
+
+  /* Отступы */
+  .section-pad { padding: 64px 0 72px; }
+  .container { padding: 0 16px; }
+
+  /* Скрываем декоративную подложку — она вызывает overflow */
+  .section-label { display: none; }
+
+  /* Кнопки — разрешаем перенос */
+  .btn { white-space: normal; text-align: center; justify-content: center; }
+
+  /* ── HEADER ── */
+  .nav, .header-phone, .header-cta { display: none; }
+  .hamburger { display: flex; }
+  .header-inner { padding: 0 16px; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100svh;
+    height: auto;
+    padding: var(--header-h) 0 32px;
+    overflow: visible;
+  }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 16px;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .display-title {
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
+    line-height: 1;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+  /* Скрываем <br> в подзаголовке */
+  .hero-subtitle br { display: none; }
+
+  .hero-eyebrow { font-size: 0.72rem; gap: 6px; margin-bottom: 16px; }
+  .hero-eyebrow::before, .hero-eyebrow::after { width: 20px; }
+
+  .hero-cta-group { gap: 10px; }
+  .hero-cta-group .btn { width: 100%; max-width: 340px; padding: 15px 24px; font-size: 0.85rem; }
+
+  .hero-note { font-size: 0.75rem; gap: 10px; }
+
+  /* Статистика hero — убираем абсолютное позиционирование */
+  .hero-stats {
+    position: relative;
+    transform: none;
+    bottom: auto; left: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-top: 28px;
+    padding: 20px 16px 0;
+    border-top: 1px solid rgba(255,255,255,0.14);
+    animation: none;
+    opacity: 1;
+    z-index: 2;
+  }
+  .hero-stat {
+    flex: 1;
+    text-align: center;
+    padding: 0 6px;
+    border-right: 1px solid rgba(255,255,255,0.14);
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat-num { font-size: 1.8rem; }
+  .hero-stat-label { font-size: 0.68rem; }
+
+  .hero-scroll { display: none; }
+
+  /* ── PAIN ── */
+  .pain-inner { grid-template-columns: 1fr; gap: 32px; }
+  .pain-intro { max-width: 100%; }
+  .pain-intro .section-title { font-size: clamp(2rem, 8vw, 2.8rem); }
+  .pain-item { padding: 16px 18px; gap: 14px; }
+  .pain-icon { width: 36px; height: 36px; font-size: 1rem; flex-shrink: 0; }
+  .pain-text { font-size: 0.9rem; }
+
+  /* ── BENTO / UTP ── */
+  .bento { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .bento-card:nth-child(1) { grid-column: 1 / 3; padding: 28px 24px; }
+  .bento-card:nth-child(2) { grid-column: 1 / 2; }
+  .bento-card:nth-child(3) { grid-column: 2 / 3; }
+  .bento-card:nth-child(4) { grid-column: 1 / 2; }
+  .bento-card:nth-child(5) { grid-column: 2 / 3; }
+  .bento-card:nth-child(6) { grid-column: 1 / 3; }
+  .bento-card { padding: 20px 18px; border-radius: var(--radius-md); }
+  .bento-num { font-size: 2.8rem; }
+  .bento-icon { font-size: 1.5rem; margin-bottom: 10px; }
+  .bento-card-title { font-size: 0.88rem; }
+  .bento-card-text { font-size: 0.82rem; }
+  .utp-cta { margin-top: 36px; }
+  .utp-cta .btn { width: 100%; max-width: 360px; font-size: 0.82rem; }
+
+  /* ── PORTFOLIO ── */
+  .portfolio-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .portfolio-filters { gap: 6px; flex-wrap: wrap; }
+  .filter-btn { padding: 8px 14px; font-size: 0.78rem; }
+  .portfolio-grid { grid-template-columns: 1fr; gap: 12px; }
+  .portfolio-card { aspect-ratio: 16/9; }
+  .portfolio-card:nth-child(1),
+  .portfolio-card:nth-child(4) { grid-column: 1; aspect-ratio: 16/9; }
+  /* Overlay всегда виден на мобильном (нет hover) */
+  .portfolio-overlay { opacity: 1; }
+  .portfolio-cta .btn { width: 100%; font-size: 0.82rem; }
+
+  /* ── PROCESS ── */
+  .process-header { margin-bottom: 40px; }
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: 0;
+    position: relative;
+  }
+  .process-steps::before { display: none; }
+  .process-step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    grid-template-rows: auto auto auto;
+    column-gap: 16px;
+    text-align: left;
+    padding: 0 0 28px;
+    position: relative;
+  }
+  .process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 27px;
+    top: 56px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--sage), var(--linen));
+  }
+  .process-num {
+    width: 56px; height: 56px;
+    font-size: 1.3rem;
+    grid-column: 1; grid-row: 1 / 4;
+    align-self: start;
+    margin: 0;
+  }
+  .process-step-title { grid-column: 2; grid-row: 1; font-size: 0.95rem; padding-top: 6px; }
+  .process-step-time  { grid-column: 2; grid-row: 2; margin-bottom: 4px; }
+  .process-step-text  { grid-column: 2; grid-row: 3; }
+  .process-note { padding: 24px 20px; font-size: 1.1rem; border-radius: var(--radius-md); }
+
+  /* ── REVIEWS ── */
+  .reviews-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .reviews-grid { grid-template-columns: 1fr; gap: 16px; }
+  .review-card { padding: 22px 20px; }
+
+  /* ── CALCULATOR ── */
+  .calculator-inner { grid-template-columns: 1fr; gap: 0; }
+  .calc-info-header { margin-bottom: 32px; }
+  .calc-info-header .section-title { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+  .calc-benefits { gap: 12px; }
+  .calc-benefit { font-size: 0.85rem; }
+  .calc-box { padding: 28px 20px; border-radius: var(--radius-lg); max-width: 100%; margin: 0; }
+  .calc-step-title { font-size: 1.25rem; }
+  .calc-options { grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+  .calc-option { padding: 14px 8px; border-radius: var(--radius-md); }
+  .calc-option-icon { font-size: 1.4rem; margin-bottom: 6px; }
+  .calc-option-label { font-size: 0.78rem; }
+  .calc-sizes { gap: 6px; }
+  .calc-size-opt { padding: 12px 14px; font-size: 0.85rem; }
+  .calc-size-price { font-size: 0.78rem; }
+  .calc-input { padding: 13px 16px; font-size: 0.95rem; }
+  .calc-next { padding: 14px 20px; font-size: 0.82rem; }
+
+  /* ── GUARANTEES ── */
+  .guarantees-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .guarantee-card { padding: 22px 16px; border-radius: var(--radius-md); }
+  .guarantee-card:last-child { grid-column: 1 / 3; }
+  .guarantee-icon { font-size: 1.6rem; }
+  .guarantee-title { font-size: 0.88rem; }
+  .guarantee-text { font-size: 0.78rem; }
+  .team-block { grid-template-columns: 1fr; gap: 16px; }
+  .team-card { padding: 20px; gap: 16px; }
+  .team-photo { width: 64px; height: 64px; }
+  .team-name { font-size: 0.95rem; }
+  .team-quote { font-size: 0.82rem; }
+
+  /* ── FINAL CTA ── */
+  .final-cta-inner { grid-template-columns: 1fr; gap: 32px; text-align: left; }
+  .final-cta-title { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+  .cta-form-card { padding: 24px 20px; border-radius: var(--radius-lg); }
+  .cta-form-title { font-size: 1.3rem; }
+  .cta-input { padding: 14px 16px; }
+  .cta-channels { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .cta-channel { padding: 10px 6px; font-size: 0.75rem; }
+
+  /* ── FOOTER ── */
+  .footer { padding: 40px 0 100px; } /* 100px — место для мобильной панели */
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  .footer-legal { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .footer-desc { font-size: 0.82rem; }
+  .footer-reqs { font-size: 0.72rem; }
+
+  /* ── WHATSAPP FLOAT — прячем, есть мобильная панель ── */
+  .wa-float { display: none; }
+  /* Мобильная панель: по умолчанию скрыта на desktop через следующее правило */
+
+  /* ── МОБИЛЬНАЯ НИЖНЯЯ ПАНЕЛЬ ── */
+  .mobile-bottom-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 800;
+    background: rgba(28,28,28,0.97);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 10px 16px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    gap: 10px;
+    align-items: center;
+  }
+  .mobile-bottom-bar-phone {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .mobile-bottom-bar-phone a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--warm-white);
+    white-space: nowrap;
+  }
+  .mobile-bottom-bar-phone span {
+    font-size: 0.7rem;
+    color: var(--warm-gray);
+  }
+  .mobile-bottom-bar-wa {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #25D366;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: var(--radius-md);
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .mobile-bottom-bar-cta {
+    display: flex;
+    align-items: center;
+    background: var(--sage);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.2;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   SMALL PHONES  ≤ 480px
+═══════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .section-pad { padding: 52px 0 60px; }
+  .container { padding: 0 14px; }
+
+  .display-title { font-size: clamp(2rem, 10vw, 2.8rem); }
+
+  .hero-stat-num { font-size: 1.5rem; }
+  .hero-stat-label { font-size: 0.62rem; }
+  .hero-stats { gap: 0; }
+
+  .section-title { font-size: clamp(1.7rem, 7vw, 2.4rem); }
+
+  .bento { grid-template-columns: 1fr; gap: 8px; }
+  .bento-card { grid-column: 1 !important; }
+  .bento-card:nth-child(1) { padding: 24px 20px; }
+
+  .guarantees-grid { grid-template-columns: 1fr; }
+  .guarantee-card:last-child { grid-column: 1; }
+
+  .calc-options { grid-template-columns: 1fr 1fr; }
+  .calc-option { padding: 12px 6px; }
+  .calc-option-icon { font-size: 1.2rem; }
+  .calc-option-label { font-size: 0.72rem; }
+
+  .cta-channels { grid-template-columns: 1fr; gap: 8px; }
+
+  .portfolio-filters { gap: 4px; }
+  .filter-btn { padding: 7px 10px; font-size: 0.72rem; }
+
+  .mobile-bottom-bar-wa span { display: none; }
+  .mobile-bottom-bar-wa { padding: 12px; }
+}
+
+/* ═══════════════════════════════════════════
+   VERY SMALL  ≤ 360px
+═══════════════════════════════════════════ */
+@media (max-width: 360px) {
+  .display-title { font-size: 1.9rem; }
+  .hero-cta-group .btn { font-size: 0.8rem; padding: 14px 16px; }
+  .hero-note { font-size: 0.68rem; }
+  .bento-card { padding: 18px 14px; }
+  .calc-box { padding: 22px 14px; }
+  .mobile-bottom-bar-cta { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll progress -->
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">Н</div>
+      <span class="logo-name">НавесПро</span>
+    </a>
+
+    <nav class="nav">
+      <a href="#projects">Проекты</a>
+      <a href="#calculator">Стоимость</a>
+      <a href="#process">Как работаем</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="header-contacts">
+      <div class="header-phone">
+        <a href="tel:+78001234567">+7 (800) 123-45-67</a>
+        <small>Пн–Вс: 8:00–21:00</small>
+      </div>
+      <button class="btn btn-ghost header-cta" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">
+        Перезвоните мне
+      </button>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#projects" class="mobile-nav-link">Проекты</a>
+  <a href="#calculator" class="mobile-nav-link">Стоимость</a>
+  <a href="#process" class="mobile-nav-link">Как работаем</a>
+  <a href="#reviews" class="mobile-nav-link">Отзывы</a>
+  <a href="#contacts" class="mobile-nav-link">Контакты</a>
+  <div class="mobile-nav-phone">+7 (800) 123-45-67</div>
+</nav>
+
+<!-- ═══ SECTION 1: HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-bg-img ph-hero" style="height:100%"></div>
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span></span>Премиум навесы под ключ<span></span>
+    </div>
+    <h1 class="display-title hero-title">
+      Ваш двор станет<br>
+      <em style="color:var(--sage)">любимым местом</em><br>
+      в доме
+    </h1>
+    <p class="hero-subtitle">
+      Навесы под ключ за 1–3 дня. Фиксированная цена в договоре. Гарантия 25 лет. Бесплатный выезд замерщика.
+    </p>
+    <div class="hero-cta-group">
+      <button class="btn btn-light" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">
+        Получить бесплатный расчёт
+      </button>
+      <div class="hero-note">
+        <span>Бесплатный замер</span>
+        <span>Без обязательств</span>
+        <span>Один звонок</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Статистика: абсолютная на desktop, static на mobile -->
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-count="847">0</div>
+      <div class="hero-stat-label">проектов</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">25</div>
+      <div class="hero-stat-label">лет гарантия</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">1–3</div>
+      <div class="hero-stat-label">дня монтаж</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 2: PAIN ═══ -->
+<section class="section section-light section-pad">
+  <div class="section-label">БОЛЬ</div>
+  <div class="container">
+    <div class="pain-inner">
+      <div class="pain-intro anim">
+        <h2 class="section-title pain-heading">Узнаёте<br>себя?</h2>
+        <p class="body-text" style="margin-bottom:24px">
+          Мы работаем с 847 семьями и знаем: у каждого — одни и те же сомнения
+          перед тем, как решиться на навес.
+        </p>
+        <div class="pain-transition">
+          <div class="pain-transition-line"></div>
+          <p class="pain-transition-text">Мы решили это для всех</p>
+        </div>
+      </div>
+
+      <div class="pain-list">
+        <div class="pain-item anim anim-delay-1">
+          <div class="pain-icon">🌧️</div>
+          <p class="pain-text">Машина мокнет под дождём, и каждое утро начинается с раздражения</p>
+        </div>
+        <div class="pain-item anim anim-delay-2">
+          <div class="pain-icon">🍖</div>
+          <p class="pain-text">Шашлык снова отменили из-за непогоды — а так хотелось собраться с семьёй</p>
+        </div>
+        <div class="pain-item anim anim-delay-3">
+          <div class="pain-icon">🏠</div>
+          <p class="pain-text">Соседи уже поставили навес, а вы всё откладываете на «потом»</p>
+        </div>
+        <div class="pain-item anim anim-delay-4">
+          <div class="pain-icon">💸</div>
+          <p class="pain-text">Боитесь нарваться на тех, кто возьмёт деньги и пропадёт</p>
+        </div>
+        <div class="pain-item anim anim-delay-5">
+          <div class="pain-icon">❓</div>
+          <p class="pain-text">Не понимаете, сколько это должно стоить — и не переплатите ли вы</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 3: UTP ═══ -->
+<section class="section section-dark section-pad">
+  <div class="section-label">НАВЕС</div>
+  <div class="container">
+    <div class="utp-header anim">
+      <h2 class="section-title">Почему выбирают нас</h2>
+      <p>Не слова — конкретные условия, прописанные в договоре</p>
+    </div>
+
+    <div class="bento">
+      <div class="bento-card anim">
+        <div class="bento-num">25 <span class="bento-num-unit">лет</span></div>
+        <div class="bento-card-title">Гарантия на конструкцию</div>
+        <div class="bento-card-text">
+          Письменный договор с прописанными условиями. Не устное обещание —
+          каждый пункт фиксируем на бумаге. Бесплатно устраним любой
+          производственный дефект за весь срок гарантии.
+        </div>
+      </div>
+      <div class="bento-card anim anim-delay-1">
+        <span class="bento-icon">⏱️</span>
+        <div class="bento-card-title">Монтаж за 1–3 дня</div>
+        <div class="bento-card-text">Бригада из 3 мастеров — работаем без выходных</div>
+      </div>
+      <div class="bento-card anim anim-delay-2">
+        <span class="bento-icon">₽</span>
+        <div class="bento-card-title">Фиксированная цена</div>
+        <div class="bento-card-text">Смета подписана — ни рубля сверх при любых обстоятельствах</div>
+      </div>
+      <div class="bento-card anim anim-delay-3">
+        <span class="bento-icon">🏭</span>
+        <div class="bento-card-title">Своё производство</div>
+        <div class="bento-card-text">Изготавливаем в [городе] — без посредников и наценок</div>
+      </div>
+      <div class="bento-card anim anim-delay-4">
+        <span class="bento-icon">📐</span>
+        <div class="bento-card-title">Замер бесплатно</div>
+        <div class="bento-card-text">Приедем, измерим, сделаем проект и смету без предоплаты</div>
+      </div>
+      <div class="bento-card anim anim-delay-5">
+        <span class="bento-icon">↩️</span>
+        <div class="bento-card-title">Возврат аванса</div>
+        <div class="bento-card-text">Передумаете до производства — вернём 100% предоплаты</div>
+      </div>
+    </div>
+
+    <div class="utp-cta anim">
+      <button class="btn btn-light" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">
+        Записаться на бесплатный замер
+      </button>
+      <span class="btn-note">Выезд замерщика в течение 24 часов</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 4: PORTFOLIO ═══ -->
+<section class="section section-lighter section-pad" id="projects">
+  <div class="container">
+    <div class="portfolio-header">
+      <div class="anim">
+        <h2 class="section-title">847 реализованных<br>проектов</h2>
+        <p class="body-text" style="margin-top:8px">Реальные объекты — никаких рендеров</p>
+      </div>
+      <div class="portfolio-filters anim anim-delay-1">
+        <button class="filter-btn active" data-filter="all">Все</button>
+        <button class="filter-btn" data-filter="car">Для авто</button>
+        <button class="filter-btn" data-filter="terrace">Над террасой</button>
+        <button class="filter-btn" data-filter="entrance">Над входом</button>
+        <button class="filter-btn" data-filter="commercial">Коммерческие</button>
+      </div>
+    </div>
+
+    <div class="portfolio-grid" id="portfolioGrid">
+      <div class="portfolio-card anim" data-cat="terrace">
+        <div class="portfolio-img ph-warm" style="height:100%"></div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>Пергола над террасой</h4>
+            <p>Одинцово · 42 м² · 2 дня · Алюминий + стекло</p>
+            <span class="portfolio-budget">187 000 ₽</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-card anim anim-delay-1" data-cat="car">
+        <div class="portfolio-img ph-cool" style="height:100%"></div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>Навес для двух авто</h4>
+            <p>Химки · 30 м² · 1 день · Поликарбонат</p>
+            <span class="portfolio-budget">94 000 ₽</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-card anim anim-delay-2" data-cat="entrance">
+        <div class="portfolio-img ph-sunset" style="height:100%"></div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>Козырёк над входом</h4>
+            <p>Красногорск · 8 м² · 1 день · Профнастил</p>
+            <span class="portfolio-budget">38 000 ₽</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-card anim anim-delay-1" data-cat="commercial">
+        <div class="portfolio-img ph-evening" style="height:100%"></div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>Летняя терраса кафе</h4>
+            <p>Москва · 80 м² · 3 дня · Ткань + металл</p>
+            <span class="portfolio-budget">310 000 ₽</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-card anim anim-delay-2" data-cat="car">
+        <div class="portfolio-img ph-morning" style="height:100%"></div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>Навес + зона отдыха</h4>
+            <p>Балашиха · 56 м² · 3 дня · Алюминий</p>
+            <span class="portfolio-budget">230 000 ₽</span>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-card anim anim-delay-3" data-cat="terrace">
+        <div class="portfolio-img ph-warm" style="height:100%"></div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-info">
+            <h4>Деревянная пергола</h4>
+            <p>Пушкино · 24 м² · 2 дня · Дерево + поликарбонат</p>
+            <span class="portfolio-budget">145 000 ₽</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-cta anim">
+      <button class="btn btn-primary" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">
+        Хочу такой же — рассчитать стоимость
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 5: PROCESS ═══ -->
+<section class="section section-light section-pad" id="process">
+  <div class="section-label">ПРОЦЕСС</div>
+  <div class="container">
+    <div class="process-header anim">
+      <h2 class="section-title">От звонка до готового навеса —<br>6 шагов</h2>
+      <p class="body-text" style="margin-top:12px">Вы знаете, что будет на каждом этапе и когда</p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step anim">
+        <div class="process-num">1</div>
+        <div class="process-step-title">Заявка</div>
+        <div class="process-step-time">Сегодня</div>
+        <p class="process-step-text">Оставьте контакт — перезвоним в течение 15 минут в рабочее время</p>
+      </div>
+      <div class="process-step anim anim-delay-1">
+        <div class="process-num">2</div>
+        <div class="process-step-title">Замер</div>
+        <div class="process-step-time">В течение 24ч</div>
+        <p class="process-step-text">Приедем, измерим, предложим 2–3 варианта с учётом вашего участка</p>
+      </div>
+      <div class="process-step anim anim-delay-2">
+        <div class="process-num">3</div>
+        <div class="process-step-title">Проект и смета</div>
+        <div class="process-step-time">День в день</div>
+        <p class="process-step-text">Пришлём чертёж и фиксированную смету — цена не изменится</p>
+      </div>
+      <div class="process-step anim anim-delay-3">
+        <div class="process-num">4</div>
+        <div class="process-step-title">Договор</div>
+        <div class="process-step-time">+ 30% аванс</div>
+        <p class="process-step-text">Подписываем договор с гарантиями и сроками, вы вносите 30%</p>
+      </div>
+      <div class="process-step anim anim-delay-4">
+        <div class="process-num">5</div>
+        <div class="process-step-title">Монтаж</div>
+        <div class="process-step-time">3–14 дней</div>
+        <p class="process-step-text">Изготавливаем и устанавливаем — платите остаток после приёмки</p>
+      </div>
+      <div class="process-step anim anim-delay-5">
+        <div class="process-num">6</div>
+        <div class="process-step-title">Сдача</div>
+        <div class="process-step-time">Финал</div>
+        <p class="process-step-text">Принимаете работу, подписываем акт, вручаем гарантийный паспорт</p>
+      </div>
+    </div>
+
+    <div class="process-note anim" style="margin-top:48px">
+      Первый шаг — просто оставить номер.
+      <span>Никаких обязательств, никаких навязчивых звонков.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 6: REVIEWS ═══ -->
+<section class="section section-dark section-pad" id="reviews">
+  <div class="section-label">ОТЗЫВЫ</div>
+  <div class="container">
+    <div class="reviews-header">
+      <h2 class="section-title anim">Что говорят клиенты</h2>
+      <div class="rating-badge anim anim-delay-1">
+        <div>
+          <div class="rating-stars">★★★★★</div>
+        </div>
+        <div class="rating-info">
+          <h4>4.9 из 5</h4>
+          <p>213 отзывов на Google</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card anim">
+        <div class="review-top">
+          <div class="review-avatar img-placeholder ph-warm" style="width:52px;height:52px;border-radius:50%;flex-shrink:0"></div>
+          <div class="review-meta">
+            <h4>Марина К.</h4>
+            <p>Химки, Московская обл.</p>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          Боялась нарваться на тех, кто возьмёт деньги и пропадёт. Здесь — полная
+          противоположность: приехали в день звонка, сделали за 2 дня, убрали
+          весь мусор. Муж в восторге, уже рекомендуем всем соседям.
+        </p>
+        <div class="review-project">
+          <span>Навес над парковкой</span> · Июль 2025 · 36 м²
+        </div>
+      </div>
+
+      <div class="review-card anim anim-delay-1">
+        <div class="review-top">
+          <div class="review-avatar img-placeholder ph-cool" style="width:52px;height:52px;border-radius:50%;flex-shrink:0"></div>
+          <div class="review-meta">
+            <h4>Алексей П.</h4>
+            <p>Одинцово</p>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          Делали перголу над террасой. Понравилось, что цена не изменилась
+          ни на рубль после подписания договора — как и обещали. Сделали красиво,
+          жена счастлива. Однозначно рекомендую.
+        </p>
+        <div class="review-project">
+          <span>Пергола над террасой</span> · Август 2025 · 42 м²
+        </div>
+      </div>
+
+      <div class="review-card anim anim-delay-2">
+        <div class="review-top">
+          <div class="review-avatar img-placeholder ph-sunset" style="width:52px;height:52px;border-radius:50%;flex-shrink:0"></div>
+          <div class="review-meta">
+            <h4>Ольга и Сергей М.</h4>
+            <p>Балашиха</p>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          Обращались трижды за три года: навес для машины, козырёк над входом
+          и навес над зоной барбекю. Каждый раз — качественно и точно в срок.
+          Теперь только к ним.
+        </p>
+        <div class="review-project">
+          <span>Три проекта</span> · 2023–2025 · постоянный клиент
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 7: CALCULATOR ═══ -->
+<section class="section section-light section-pad" id="calculator">
+  <div class="section-label">РАСЧЁТ</div>
+  <div class="container">
+    <div class="calculator-inner">
+      <div class="calc-info-header">
+        <div class="anim">
+          <h2 class="section-title">Рассчитайте стоимость<br>вашего навеса</h2>
+          <p>30 секунд — и вы получите предварительную цену. Без звонков, без давления.</p>
+        </div>
+        <div class="calc-benefits anim anim-delay-1">
+          <div class="calc-benefit">
+            <div class="calc-benefit-icon">📐</div>
+            <span>Выезд замерщика бесплатно — в течение 24 часов</span>
+          </div>
+          <div class="calc-benefit">
+            <div class="calc-benefit-icon">₽</div>
+            <span>Фиксированная смета — цена не изменится</span>
+          </div>
+          <div class="calc-benefit">
+            <div class="calc-benefit-icon">📋</div>
+            <span>Готовый проект — в день замера, бесплатно</span>
+          </div>
+          <div class="calc-benefit">
+            <div class="calc-benefit-icon">↩️</div>
+            <span>Возврат аванса, если передумаете до производства</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALCULATOR BOX -->
+      <div class="calc-box anim anim-delay-2">
+        <!-- Progress -->
+        <div class="calc-progress">
+          <div class="calc-dot active" id="dot0"></div>
+          <div class="calc-dot" id="dot1"></div>
+          <div class="calc-dot" id="dot2"></div>
+          <div class="calc-dot" id="dot3"></div>
+        </div>
+
+        <!-- Steps -->
+        <div id="calcStep0">
+          <div class="calc-step-label">Шаг 1 из 4</div>
+          <div class="calc-step-title">Где нужен навес?</div>
+          <div class="calc-options">
+            <div class="calc-option" data-val="car">
+              <span class="calc-option-icon">🚗</span>
+              <div class="calc-option-label">Над автомобилем</div>
+            </div>
+            <div class="calc-option" data-val="terrace">
+              <span class="calc-option-icon">🌿</span>
+              <div class="calc-option-label">Над террасой</div>
+            </div>
+            <div class="calc-option" data-val="entrance">
+              <span class="calc-option-icon">🚪</span>
+              <div class="calc-option-label">Над входом</div>
+            </div>
+            <div class="calc-option" data-val="pool">
+              <span class="calc-option-icon">🏊</span>
+              <div class="calc-option-label">Над бассейном</div>
+            </div>
+          </div>
+          <div class="calc-nav">
+            <button class="btn btn-light calc-next" id="next0" disabled onclick="nextStep(1)">
+              Далее →
+            </button>
+          </div>
+        </div>
+
+        <div id="calcStep1" style="display:none">
+          <div class="calc-step-label">Шаг 2 из 4</div>
+          <div class="calc-step-title">Какой материал?</div>
+          <div class="calc-options">
+            <div class="calc-option" data-val="poly">
+              <span class="calc-option-icon">🔵</span>
+              <div class="calc-option-label">Поликарбонат</div>
+            </div>
+            <div class="calc-option" data-val="profil">
+              <span class="calc-option-icon">⬜</span>
+              <div class="calc-option-label">Профнастил</div>
+            </div>
+            <div class="calc-option" data-val="alu">
+              <span class="calc-option-icon">✨</span>
+              <div class="calc-option-label">Алюминий + стекло</div>
+            </div>
+            <div class="calc-option" data-val="fabric">
+              <span class="calc-option-icon">🎪</span>
+              <div class="calc-option-label">Ткань / маркиза</div>
+            </div>
+          </div>
+          <div class="calc-nav">
+            <button class="calc-back" onclick="prevStep(0)">←</button>
+            <button class="btn btn-light calc-next" id="next1" disabled onclick="nextStep(2)">
+              Далее →
+            </button>
+          </div>
+        </div>
+
+        <div id="calcStep2" style="display:none">
+          <div class="calc-step-label">Шаг 3 из 4</div>
+          <div class="calc-step-title">Примерная площадь?</div>
+          <div class="calc-sizes">
+            <div class="calc-size-opt" data-val="s" onclick="selectSize(this,'от 35 000 ₽')">
+              <div class="calc-size-radio"></div>
+              <span>до 20 м²</span>
+              <span class="calc-size-price">от 35 000 ₽</span>
+            </div>
+            <div class="calc-size-opt" data-val="m" onclick="selectSize(this,'от 75 000 ₽')">
+              <div class="calc-size-radio"></div>
+              <span>20–40 м²</span>
+              <span class="calc-size-price">от 75 000 ₽</span>
+            </div>
+            <div class="calc-size-opt" data-val="l" onclick="selectSize(this,'от 140 000 ₽')">
+              <div class="calc-size-radio"></div>
+              <span>40–60 м²</span>
+              <span class="calc-size-price">от 140 000 ₽</span>
+            </div>
+            <div class="calc-size-opt" data-val="xl" onclick="selectSize(this,'от 200 000 ₽')">
+              <div class="calc-size-radio"></div>
+              <span>более 60 м²</span>
+              <span class="calc-size-price">от 200 000 ₽</span>
+            </div>
+          </div>
+          <div class="calc-nav">
+            <button class="calc-back" onclick="prevStep(1)">←</button>
+            <button class="btn btn-light calc-next" id="next2" disabled onclick="nextStep(3)">
+              Далее →
+            </button>
+          </div>
+        </div>
+
+        <div id="calcStep3" style="display:none">
+          <div class="calc-step-label">Шаг 4 из 4</div>
+          <div class="calc-step-title">Куда отправить расчёт?</div>
+          <div class="calc-form">
+            <input class="calc-input" type="text" id="calcName" placeholder="Ваше имя" oninput="checkForm()">
+            <input class="calc-input" type="tel" id="calcPhone" placeholder="+7 (___) ___-__-__" oninput="formatPhone(this);checkForm()">
+          </div>
+          <div class="calc-nav">
+            <button class="calc-back" onclick="prevStep(2)">←</button>
+            <button class="btn btn-light calc-next" id="next3" disabled onclick="submitCalc()">
+              Получить расчёт
+            </button>
+          </div>
+          <p class="calc-disclaimer">Не передаём данные третьим лицам · Один звонок</p>
+        </div>
+
+        <!-- Success -->
+        <div class="calc-success" id="calcSuccess">
+          <div class="calc-success-icon">✅</div>
+          <h3>Расчёт принят!</h3>
+          <p>Перезвоним в течение 15 минут в рабочее время.<br>
+          Пн–Вс: 8:00–21:00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 8: GUARANTEES ═══ -->
+<section class="section section-dark section-pad">
+  <div class="section-label">ГАРАНТИИ</div>
+  <div class="container">
+    <div class="guarantees-header anim">
+      <h2 class="section-title">Ваша защита при работе с нами</h2>
+      <p>Каждый пункт прописан в договоре — не устные обещания</p>
+    </div>
+
+    <div class="guarantees-grid">
+      <div class="guarantee-card anim">
+        <span class="guarantee-icon">🛡️</span>
+        <div class="guarantee-title">Гарантия 25 лет</div>
+        <p class="guarantee-text">Письменно в договоре. Бесплатно устраним любой производственный дефект.</p>
+      </div>
+      <div class="guarantee-card anim anim-delay-1">
+        <span class="guarantee-icon">📋</span>
+        <div class="guarantee-title">Фиксированная цена</div>
+        <p class="guarantee-text">Смета подписана — цена не изменится ни при каких обстоятельствах.</p>
+      </div>
+      <div class="guarantee-card anim anim-delay-2">
+        <span class="guarantee-icon">⏰</span>
+        <div class="guarantee-title">Срок в договоре</div>
+        <p class="guarantee-text">Опоздаем — штраф 1% от суммы за каждый день просрочки.</p>
+      </div>
+      <div class="guarantee-card anim anim-delay-3">
+        <span class="guarantee-icon">↩️</span>
+        <div class="guarantee-title">Возврат аванса</div>
+        <p class="guarantee-text">Передумаете до начала производства — вернём 100% предоплаты.</p>
+      </div>
+      <div class="guarantee-card anim anim-delay-4">
+        <span class="guarantee-icon">🧹</span>
+        <div class="guarantee-title">Уборка включена</div>
+        <p class="guarantee-text">После монтажа вывезем весь строительный мусор и отходы.</p>
+      </div>
+    </div>
+
+    <div class="team-block">
+      <div class="team-card anim">
+        <div class="team-photo ph-walnut img-placeholder" style="width:80px;height:80px;border-radius:50%;flex-shrink:0;border:2px solid rgba(201,169,110,0.3)"></div>
+        <div>
+          <div class="team-name">Дмитрий</div>
+          <div class="team-role">Бригадир · 9 лет в нише</div>
+          <p class="team-quote">«Каждый объект я принимаю лично перед сдачей клиенту. Брак не пропущу.»</p>
+        </div>
+      </div>
+      <div class="team-card anim anim-delay-1">
+        <div class="team-photo ph-morning img-placeholder" style="width:80px;height:80px;border-radius:50%;flex-shrink:0;border:2px solid rgba(201,169,110,0.3)"></div>
+        <div>
+          <div class="team-name">Анна</div>
+          <div class="team-role">Менеджер проекта</div>
+          <p class="team-quote">«Позвоните или напишите — отвечу в течение часа и разберу любой вопрос.»</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 9: FINAL CTA ═══ -->
+<section class="section final-cta section-pad" id="contacts">
+  <div class="final-cta-bg ph-hero" style="position:absolute;inset:0;opacity:0.2"></div>
+  <div class="final-cta-overlay"></div>
+
+  <div class="container">
+    <div class="final-cta-inner">
+      <div class="final-cta-left anim">
+        <div class="final-cta-eyebrow">
+          <span style="width:24px;height:1px;background:var(--sage);display:inline-block"></span>
+          Бесплатно и без обязательств
+        </div>
+        <h2 class="final-cta-title">
+          Получите бесплатный проект<br>
+          и точную смету<br>
+          <em style="color:var(--sage)">уже сегодня</em>
+        </h2>
+        <div class="final-cta-urgency">
+          <div class="urgency-dot"></div>
+          Апрель — горячий сезон. Свободных слотов: <strong>3</strong>
+        </div>
+      </div>
+
+      <div class="cta-form-card anim anim-delay-1">
+        <h3 class="cta-form-title">Записаться на замер</h3>
+        <p class="cta-form-sub">Перезвоним в течение 15 минут</p>
+
+        <form class="cta-form" onsubmit="submitMainForm(event)">
+          <input class="cta-input" type="text" id="mainName" placeholder="Ваше имя" required>
+          <input class="cta-input" type="tel" id="mainPhone" placeholder="+7 (___) ___-__-__"
+                 oninput="formatPhone(this)" required>
+          <button type="submit" class="btn btn-light" style="width:100%;justify-content:center;padding:17px">
+            Хочу бесплатный замер
+          </button>
+        </form>
+        <p class="cta-form-note" style="margin-top:12px">Не передаём данные · Один звонок</p>
+
+        <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08)">
+          <p style="font-size:0.78rem;color:var(--warm-gray);margin-bottom:12px;text-align:center">
+            или свяжитесь удобным способом
+          </p>
+          <div class="cta-channels">
+            <a href="https://wa.me/78001234567" class="cta-channel cta-channel-wa">
+              <span>💬</span> WhatsApp
+            </a>
+            <a href="https://t.me/NavesProBot" class="cta-channel cta-channel-tg">
+              <span>✈️</span> Telegram
+            </a>
+            <a href="tel:+78001234567" class="cta-channel cta-channel-phone">
+              <span>📞</span> Позвонить
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:16px">
+          <div class="logo-mark">Н</div>
+          <span class="logo-name">НавесПро</span>
+        </div>
+        <p class="footer-desc">
+          Строим премиум навесы и перголы под ключ с 2009 года.
+          847 реализованных проектов, гарантия 25 лет на каждый объект.
+        </p>
+        <p class="footer-reqs">
+          ООО «НавесПро» · ИНН: 7701234567 · ОГРН: 1097701234567<br>
+          123456, г. Москва, ул. Строительная, д. 12, офис 3
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <div class="footer-links">
+          <a href="#projects">Наши проекты</a>
+          <a href="#calculator">Рассчитать стоимость</a>
+          <a href="#process">Как мы работаем</a>
+          <a href="#reviews">Отзывы клиентов</a>
+          <a href="#contacts">Контакты</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <div class="footer-contact">
+          <span>📞</span>
+          <a href="tel:+78001234567">+7 (800) 123-45-67</a>
+        </div>
+        <div class="footer-contact">
+          <span>✉️</span>
+          <a href="mailto:info@navespro.ru">info@navespro.ru</a>
+        </div>
+        <div class="footer-contact">
+          <span>📍</span>
+          <span style="color:rgba(253,250,245,0.5)">г. Москва и Московская обл.</span>
+        </div>
+        <p style="font-size:0.8rem;color:var(--warm-gray);margin-top:12px">Пн–Вс: 8:00–21:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 НавесПро. Все права защищены.</span>
+      <div class="footer-legal">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Договор-оферта</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Мобильная нижняя панель -->
+<div class="mobile-bottom-bar">
+  <div class="mobile-bottom-bar-phone">
+    <a href="tel:+78001234567">+7 (800) 123-45-67</a>
+    <span>Пн–Вс 8:00–21:00</span>
+  </div>
+  <a href="https://wa.me/78001234567" class="mobile-bottom-bar-wa" target="_blank" rel="noopener">
+    <span>💬</span>
+    <span>WhatsApp</span>
+  </a>
+  <button class="mobile-bottom-bar-cta" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">
+    Расчёт<br>бесплатно
+  </button>
+</div>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/78001234567" class="wa-float" target="_blank" rel="noopener">
+  <span class="wa-float-icon">💬</span>
+  <span>Написать в WhatsApp</span>
+</a>
+
+<!-- ═══════════════════════════════════════════
+   JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script>
+/* ── SCROLL PROGRESS BAR ── */
+const scrollBar = document.getElementById('scrollBar');
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  scrollBar.style.width = pct + '%';
+}, { passive: true });
+
+/* ── STICKY HEADER ── */
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ── MOBILE MENU ── */
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+
+hamburger.addEventListener('click', () => {
+  const open = mobileNav.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+document.querySelectorAll('.mobile-nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+/* ── SCROLL ANIMATIONS (Intersection Observer) ── */
+const animEls = document.querySelectorAll('.anim');
+
+/* На мобильных — сразу показываем всё, без анимации */
+if (window.innerWidth <= 768) {
+  animEls.forEach(el => el.classList.add('in-view'));
+} else {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px 60px 0px' });
+  animEls.forEach(el => observer.observe(el));
+}
+
+/* ── COUNT-UP FOR HERO STATS ── */
+function countUp(el, target, duration = 1600) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { el.textContent = target; clearInterval(timer); return; }
+    el.textContent = Math.floor(start);
+  }, 16);
+}
+
+const heroObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('[data-count]').forEach(el => {
+        countUp(el, parseInt(el.dataset.count));
+      });
+      heroObserver.disconnect();
+    }
+  });
+}, { threshold: 0.5 });
+const heroSection = document.querySelector('.hero');
+if (heroSection) heroObserver.observe(heroSection);
+
+/* ── PORTFOLIO FILTER ── */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const portfolioCards = document.querySelectorAll('#portfolioGrid .portfolio-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    portfolioCards.forEach(card => {
+      const show = filter === 'all' || card.dataset.cat === filter;
+      card.style.display = show ? '' : 'none';
+      card.style.opacity = show ? '1' : '0';
+    });
+  });
+});
+
+/* ── CALCULATOR ── */
+let currentStep = 0;
+const selections = { type: null, material: null, size: null };
+
+function showStep(n) {
+  [0,1,2,3].forEach(i => {
+    const el = document.getElementById('calcStep' + i);
+    if (el) el.style.display = i === n ? '' : 'none';
+  });
+  [0,1,2,3].forEach(i => {
+    const dot = document.getElementById('dot' + i);
+    dot.className = 'calc-dot' +
+      (i < n ? ' done' : i === n ? ' active' : '');
+  });
+  currentStep = n;
+}
+
+function nextStep(n) { showStep(n); }
+function prevStep(n) { showStep(n); }
+
+// Step 0 — Type
+document.querySelectorAll('#calcStep0 .calc-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('#calcStep0 .calc-option').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    selections.type = opt.dataset.val;
+    document.getElementById('next0').disabled = false;
+  });
+});
+
+// Step 1 — Material
+document.querySelectorAll('#calcStep1 .calc-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('#calcStep1 .calc-option').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    selections.material = opt.dataset.val;
+    document.getElementById('next1').disabled = false;
+  });
+});
+
+// Step 2 — Size
+function selectSize(el, price) {
+  document.querySelectorAll('.calc-size-opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selections.size = el.dataset.val;
+  document.getElementById('next2').disabled = false;
+}
+
+// Step 3 — Contact
+function checkForm() {
+  const name  = document.getElementById('calcName').value.trim();
+  const phone = document.getElementById('calcPhone').value.replace(/\D/g,'');
+  document.getElementById('next3').disabled = !(name.length > 1 && phone.length >= 10);
+}
+
+function submitCalc() {
+  document.getElementById('calcStep3').style.display = 'none';
+  document.getElementById('calcSuccess').style.display = 'block';
+  // Here: send data to CRM/bot
+}
+
+/* ── PHONE FORMAT ── */
+function formatPhone(input) {
+  let v = input.value.replace(/\D/g, '');
+  if (v.startsWith('8')) v = '7' + v.slice(1);
+  if (!v.startsWith('7')) v = '7' + v;
+  v = v.slice(0, 11);
+  let f = '+7';
+  if (v.length > 1) f += ' (' + v.slice(1, 4);
+  if (v.length > 4) f += ') ' + v.slice(4, 7);
+  if (v.length > 7) f += '-' + v.slice(7, 9);
+  if (v.length > 9) f += '-' + v.slice(9, 11);
+  input.value = f;
+}
+
+/* ── MAIN FORM SUBMIT ── */
+function submitMainForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type=submit]');
+  btn.textContent = '✓ Заявка принята! Перезвоним через 15 мин';
+  btn.style.background = 'var(--sage-dark)';
+  btn.disabled = true;
+  // Here: send data to CRM/bot
+}
+
+/* ── SMOOTH SCROLL FOR ALL ANCHOR LINKS ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#') return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    const top = target.getBoundingClientRect().top + window.scrollY - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 72);
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
