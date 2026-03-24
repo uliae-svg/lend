@@ -47,7 +47,11 @@
 ═══════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-overflow-scrolling: touch;
+}
 
 body {
   font-family: var(--font-body);
@@ -55,6 +59,7 @@ body {
   background: var(--cream);
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
 }
 
 img { display: block; max-width: 100%; }
@@ -80,6 +85,10 @@ ul { list-style: none; }
   width: 0%;
   z-index: 9999;
   transition: width 0.1s linear;
+  display: none;
+}
+@media (min-width: 769px) {
+  .scroll-bar { display: block; }
 }
 
 /* ═══════════════════════════════════════════
@@ -2668,17 +2677,17 @@ ul { list-style: none; }
    JAVASCRIPT
 ═══════════════════════════════════════════ -->
 <script>
-/* ── SCROLL PROGRESS BAR ── */
+/* ── SCROLL: header + progress bar (один listener) ── */
 const scrollBar = document.getElementById('scrollBar');
-window.addEventListener('scroll', () => {
-  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-  scrollBar.style.width = pct + '%';
-}, { passive: true });
-
-/* ── STICKY HEADER ── */
 const header = document.getElementById('header');
+const isMobile = window.innerWidth <= 768;
+
 window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 60);
+  const y = window.scrollY;
+  header.classList.toggle('scrolled', y > 60);
+  if (!isMobile) {
+    scrollBar.style.width = (y / (document.body.scrollHeight - window.innerHeight)) * 100 + '%';
+  }
 }, { passive: true });
 
 /* ── MOBILE MENU ── */
