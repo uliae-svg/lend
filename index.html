@@ -1601,7 +1601,7 @@ ul { list-style: none; }
 
   /* ── HERO ── */
   .hero {
-    min-height: 100svh;
+    min-height: var(--real-vh, 100svh);
     height: auto;
     padding: var(--header-h) 0 32px;
     overflow: visible;
@@ -2679,6 +2679,9 @@ ul { list-style: none; }
    JAVASCRIPT
 ═══════════════════════════════════════════ -->
 <script>
+/* ── FIX: фиксируем высоту viewport один раз — URL-бар больше не двигает страницу ── */
+document.documentElement.style.setProperty('--real-vh', window.innerHeight + 'px');
+
 /* ── SCROLL: header + progress bar (один listener) ── */
 const scrollBar = document.getElementById('scrollBar');
 const header = document.getElementById('header');
