@@ -3040,6 +3040,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     window.scrollTo({ top, behavior: 'smooth' });
   });
 });
+
+/* ── FIX iOS: mobile bottom CTA — срабатывает с первого тапа ── */
+const mbbCta = document.querySelector('.mobile-bottom-bar-cta');
+if (mbbCta) {
+  mbbCta.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    scrollToSection('calculator');
+  }, { passive: false });
+}
 </script>
 </body>
 </html>
