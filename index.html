@@ -48,9 +48,11 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
-  scroll-behavior: smooth;
   font-size: 16px;
   -webkit-overflow-scrolling: touch;
+}
+@media (min-width: 769px) {
+  html { scroll-behavior: smooth; }
 }
 
 body {
@@ -1929,7 +1931,7 @@ ul { list-style: none; }
         <a href="tel:+78001234567">+7 (800) 123-45-67</a>
         <small>Пн–Вс: 8:00–21:00</small>
       </div>
-      <button class="btn btn-ghost header-cta" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">
+      <button class="btn btn-ghost header-cta" onclick="scrollToSection('contacts')">
         Перезвоните мне
       </button>
     </div>
@@ -1970,7 +1972,7 @@ ul { list-style: none; }
       Навесы под ключ за 1–3 дня. Фиксированная цена в договоре. Гарантия 25 лет. Бесплатный выезд замерщика.
     </p>
     <div class="hero-cta-group">
-      <button class="btn btn-light" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">
+      <button class="btn btn-light" onclick="scrollToSection('calculator')">
         Получить бесплатный расчёт
       </button>
       <div class="hero-note">
@@ -2093,7 +2095,7 @@ ul { list-style: none; }
     </div>
 
     <div class="utp-cta anim">
-      <button class="btn btn-light" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">
+      <button class="btn btn-light" onclick="scrollToSection('calculator')">
         Записаться на бесплатный замер
       </button>
       <span class="btn-note">Выезд замерщика в течение 24 часов</span>
@@ -2182,7 +2184,7 @@ ul { list-style: none; }
     </div>
 
     <div class="portfolio-cta anim">
-      <button class="btn btn-primary" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">
+      <button class="btn btn-primary" onclick="scrollToSection('calculator')">
         Хочу такой же — рассчитать стоимость
       </button>
     </div>
@@ -2662,7 +2664,7 @@ ul { list-style: none; }
     <span>💬</span>
     <span>WhatsApp</span>
   </a>
-  <button class="mobile-bottom-bar-cta" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">
+  <button class="mobile-bottom-bar-cta" onclick="scrollToSection('calculator')">
     Расчёт<br>бесплатно
   </button>
 </div>
@@ -2689,6 +2691,13 @@ window.addEventListener('scroll', () => {
     scrollBar.style.width = (y / (document.body.scrollHeight - window.innerHeight)) * 100 + '%';
   }
 }, { passive: true });
+
+/* Хелпер плавного скролла: smooth на десктопе, instant на мобиле */
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.scrollIntoView({ behavior: isMobile ? 'instant' : 'smooth' });
+}
 
 /* ── MOBILE MENU ── */
 const hamburger = document.getElementById('hamburger');
